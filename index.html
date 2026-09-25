@@ -83,7 +83,7 @@
   .shop-nav button{background:var(--orange);color:#fff;border:none;width:42px;height:42px;border-radius:50%;font-size:1.2rem;cursor:pointer;}
   .shop-nav button:hover{background:#ff8c1a;}
   .carousel{max-width:1100px;margin:0 auto;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;padding:4px 2px 10px;}
-  .pcard{flex:0 0 210px;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.25);scroll-snap-align:start;transition:transform .15s, box-shadow .15s;position:relative;display:flex;flex-direction:column;}
+  .pcard{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.25);scroll-snap-align:start;transition:transform .15s, box-shadow .15s;position:relative;display:flex;flex-direction:column;}
   .pcard:hover{transform:translateY(-4px);box-shadow:0 8px 22px rgba(0,0,0,.35);}
   .badge{position:absolute;top:10px;left:10px;background:var(--orange);color:#fff;font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:20px;z-index:1;}
   .pcard img{width:100%;height:170px;object-fit:cover;background:#f5f5f5;}
@@ -102,6 +102,34 @@
   .cat-chip{background:transparent;color:#cfd8e6;border:1px solid #3a4a63;border-radius:20px;padding:7px 16px;font-size:.85rem;cursor:pointer;}
   .cat-chip.active{background:var(--orange);color:#fff;border-color:var(--orange);font-weight:700;}
   .no-results{max-width:1100px;margin:0 auto;color:#fff;display:none;padding:20px;text-align:center;}
+  .promo{background:var(--orange);color:#fff;text-align:center;padding:9px 12px;font-size:.85rem;font-weight:600;letter-spacing:.02em;}
+  .pgrid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;}
+  .btnrow{display:flex;gap:6px;margin-top:auto;padding-top:4px;}
+  .btnrow .cart-btn{flex:1;background:var(--navy);color:#fff;border:none;border-radius:24px;padding:9px 4px;font-weight:700;font-size:.78rem;cursor:pointer;}
+  .btnrow .cart-btn:hover{background:var(--navy-dark);}
+  .btnrow .order-btn{flex:1;padding:9px 4px;font-size:.78rem;}
+  .cart-fab{position:fixed;bottom:22px;right:90px;background:var(--navy);color:#fff;width:56px;height:56px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 14px rgba(0,0,0,.3);z-index:60;cursor:pointer;}
+  .cart-count{position:absolute;top:-4px;right:-4px;background:var(--orange);color:#fff;font-size:.7rem;font-weight:700;min-width:19px;height:19px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 4px;border:2px solid #fff;}
+  .cart-overlay{position:fixed;inset:0;background:rgba(10,16,30,.55);opacity:0;pointer-events:none;transition:opacity .2s;z-index:65;}
+  .cart-overlay.open{opacity:1;pointer-events:auto;}
+  .cart-drawer{position:fixed;top:0;right:-360px;width:min(340px,92vw);height:100%;background:#fff;z-index:70;box-shadow:-6px 0 24px rgba(0,0,0,.25);transition:right .25s;display:flex;flex-direction:column;}
+  .cart-drawer.open{right:0;}
+  .cart-head{display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:1px solid #eee;background:var(--navy);color:#fff;}
+  .cart-head h3{margin:0;font-size:1.05rem;}
+  .cart-head button{background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;}
+  .cart-items{flex:1;overflow-y:auto;padding:12px 16px;}
+  .ci{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid #f0f0f0;}
+  .ci .nm{font-size:.85rem;font-weight:600;color:#222;flex:1;}
+  .ci .qt{display:flex;align-items:center;gap:8px;}
+  .ci .qt button{width:26px;height:26px;border-radius:50%;border:1px solid #ddd;background:#fff;font-size:1rem;cursor:pointer;line-height:1;}
+  .ci .lp{font-size:.8rem;color:#0a7d33;font-weight:700;min-width:86px;text-align:right;}
+  .cart-foot{padding:14px 16px 18px;border-top:1px solid #eee;background:#fafbfc;}
+  .cart-total{display:flex;justify-content:space-between;font-weight:800;font-size:1rem;color:var(--navy);margin-bottom:10px;}
+  .cart-note{font-size:.72rem;color:#888;text-align:center;margin:8px 0 0;}
+  .cart-empty{text-align:center;color:#999;padding:36px 10px;font-size:.9rem;}
+  .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 22px;border-radius:24px;font-size:.85rem;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:80;box-shadow:0 4px 14px rgba(0,0,0,.3);}
+  .toast.show{opacity:1;}
+
   .footer-logo{width:56px;height:56px;object-fit:cover;border-radius:50%;border:2px solid var(--orange);display:block;margin:0 auto 10px;}
   .trust{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;padding:26px 20px 8px;text-align:center;}
   .trust div{background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:16px 12px;}
@@ -128,6 +156,8 @@
 </head>
 <body>
 
+<div class="promo">WhatsApp to order &middot; Delivery within Fort Portal &middot; Trade-ins welcome &middot; Mon&ndash;Sat 8:00&ndash;19:00</div>
+
 <header>
   <div class="nav">
     <div class="brand"><span class="s-badge">S</span> Steady Company (U) Ltd</div>
@@ -149,7 +179,7 @@
   <p>Fort Portal's trusted phone distributor on Bwamba Road, opposite Absa Bank. Latest smartphones, TVs, woofers, bulbs, extensions, and Lyca Mobile SIM cards &mdash; all under one roof.</p>
   <div class="hero-cta">
     <a class="btn btn-primary" href="https://wa.me/256774367997" target="_blank" rel="noopener">Chat on WhatsApp</a>
-    <a class="btn btn-outline" href="#location">Get Directions</a>
+    <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Steady+Company+U+Ltd+Bwamba+Road+Fort+Portal" target="_blank" rel="noopener">Get Directions</a>
   </div>
 </section>
 
@@ -157,208 +187,416 @@
 <section id="shop" class="shop">
   <div class="shop-head">
     <h2>Shop With Us — Search, Find, Order</h2>
-    <div class="shop-nav">
-      <button onclick="scrollShop(-1)" aria-label="Previous">&#8249;</button>
-      <button onclick="scrollShop(1)" aria-label="Next">&#8250;</button>
-    </div>
+    <span class="sub">30 products · WhatsApp checkout</span>
   </div>
   <div class="search-bar">
     <span aria-hidden="true">&#128269;</span>
-    <input type="search" id="productSearch" placeholder="Search: phone, tablet, charger, watch..." oninput="filterProducts()">
+    <input type="search" id="productSearch" placeholder="Search: tecno, samsung, charger, woofer, SIM…" oninput="filterProducts()">
   </div>
   <div class="cats">
     <button class="cat-chip active" data-cat="all" onclick="setCat(this)">All</button>
     <button class="cat-chip" data-cat="phones" onclick="setCat(this)">Phones</button>
-    <button class="cat-chip" data-cat="computers" onclick="setCat(this)">Computers & Tablets</button>
+    <button class="cat-chip" data-cat="computers" onclick="setCat(this)">Computers &amp; Tablets</button>
     <button class="cat-chip" data-cat="accessories" onclick="setCat(this)">Accessories</button>
-    <button class="cat-chip" data-cat="home" onclick="setCat(this)">TVs & Home</button>
+    <button class="cat-chip" data-cat="home" onclick="setCat(this)">TVs &amp; Home</button>
+    <button class="cat-chip" data-cat="sim" onclick="setCat(this)">SIM &amp; Lighting</button>
   </div>
-  <div class="carousel" id="shopCarousel">
-      <div class="pcard" data-cat="phones" data-name="premium smartphone 6.7&prime; 128gb flagship look, big battery, fast charging phones">
-        <span class="badge">HOT</span>
-        <img src="assets/products/phone-premium.jpg" alt="Premium Smartphone 6.7&Prime; 128GB Steady Company Fort Portal" loading="lazy">
+  <div class="pgrid" id="productGrid">
+      <div class="pcard" data-cat="phones" data-name="premium smartphone 6.7&quot; 128gb phone smartphone tecno samsung infinix itel redmi iphone galaxy flagship look, big battery, fast charging">
+        <span class="badge">HOT</span><img src="assets/products/phone-premium.jpg" alt="Premium Smartphone 6.7&quot; 128GB — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
-          <p class="pname">Premium Smartphone 6.7&Prime; 128GB</p>
+          <p class="pname">Premium Smartphone 6.7" 128GB</p>
           <p class="sub" style="margin:0;font-size:.75rem;">Flagship look, big battery, fast charging</p>
           <p class="old-price">UGX 2,650,000</p>
           <p class="price">UGX 2,199,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Premium%20Smartphone%206.7%22%20128GB%20%28UGX%202%2C199%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Premium Smartphone 6.7&quot; 128GB" data-price="2199000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Premium%20Smartphone%206.7%22%20128GB%20%28UGX%202%2C199%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="phones" data-name="fold pro flip smartphone folding display, premium glass and metal phones">
-        <span class="badge">PREMIUM</span>
-        <img src="assets/products/phone-fold.jpg" alt="Fold Pro Flip Smartphone Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="phones" data-name="fold pro flip smartphone phone smartphone tecno samsung infinix itel redmi iphone galaxy folding display, premium glass and metal">
+        <span class="badge">PREMIUM</span><img src="assets/products/phone-fold.jpg" alt="Fold Pro Flip Smartphone — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
           <p class="pname">Fold Pro Flip Smartphone</p>
           <p class="sub" style="margin:0;font-size:.75rem;">Folding display, premium glass and metal</p>
           <p class="old-price">UGX 4,200,000</p>
           <p class="price">UGX 3,499,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Fold%20Pro%20Flip%20Smartphone%20%28UGX%203%2C499%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Fold Pro Flip Smartphone" data-price="3499000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Fold%20Pro%20Flip%20Smartphone%20%28UGX%203%2C499%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="phones" data-name="galaxy style a 6.6&prime; 128gb mint green, dual sim, 5000mah phones">
-        <span class="badge">-17%</span>
-        <img src="assets/products/phone-mint.jpg" alt="Galaxy Style A 6.6&Prime; 128GB Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="phones" data-name="galaxy style a 6.6&quot; 128gb phone smartphone tecno samsung infinix itel redmi iphone galaxy mint green, dual sim, 5000mah">
+        <span class="badge">-17%</span><img src="assets/products/phone-mint.jpg" alt="Galaxy Style A 6.6&quot; 128GB — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
-          <p class="pname">Galaxy Style A 6.6&Prime; 128GB</p>
+          <p class="pname">Galaxy Style A 6.6" 128GB</p>
           <p class="sub" style="margin:0;font-size:.75rem;">Mint green, dual SIM, 5000mAh</p>
           <p class="old-price">UGX 899,000</p>
           <p class="price">UGX 749,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Galaxy%20Style%20A%206.6%22%20128GB%20%28UGX%20749%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Galaxy Style A 6.6&quot; 128GB" data-price="749000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Galaxy%20Style%20A%206.6%22%20128GB%20%28UGX%20749%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="phones" data-name="pro note 6.5&prime; 64gb amoled display, 50mp camera phones">
-        <span class="badge">NEW</span>
-        <img src="assets/products/phone-black.jpg" alt="Pro Note 6.5&Prime; 64GB Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="phones" data-name="pro note 6.5&quot; 64gb phone smartphone tecno samsung infinix itel redmi iphone galaxy amoled display, 50mp camera">
+        <span class="badge">NEW</span><img src="assets/products/phone-black.jpg" alt="Pro Note 6.5&quot; 64GB — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
-          <p class="pname">Pro Note 6.5&Prime; 64GB</p>
+          <p class="pname">Pro Note 6.5" 64GB</p>
           <p class="sub" style="margin:0;font-size:.75rem;">AMOLED display, 50MP camera</p>
           <p class="old-price">UGX 640,000</p>
           <p class="price">UGX 549,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Pro%20Note%206.5%22%2064GB%20%28UGX%20549%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Pro Note 6.5&quot; 64GB" data-price="549000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Pro%20Note%206.5%22%2064GB%20%28UGX%20549%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="phones" data-name="rugged power 6.6&prime; 64gb tough build, big battery, dual sim phones">
-        <span class="badge">DEAL</span>
-        <img src="assets/products/phone-rugged.jpg" alt="Rugged Power 6.6&Prime; 64GB Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="phones" data-name="rugged power 6.6&quot; 64gb phone smartphone tecno samsung infinix itel redmi iphone galaxy tough build, big battery, dual sim">
+        <span class="badge">DEAL</span><img src="assets/products/phone-rugged.jpg" alt="Rugged Power 6.6&quot; 64GB — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
-          <p class="pname">Rugged Power 6.6&Prime; 64GB</p>
+          <p class="pname">Rugged Power 6.6" 64GB</p>
           <p class="sub" style="margin:0;font-size:.75rem;">Tough build, big battery, dual SIM</p>
           <p class="old-price">UGX 460,000</p>
           <p class="price">UGX 389,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Rugged%20Power%206.6%22%2064GB%20%28UGX%20389%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Rugged Power 6.6&quot; 64GB" data-price="389000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Rugged%20Power%206.6%22%2064GB%20%28UGX%20389%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="phones" data-name="smart lite 6.5&prime; 32gb big battery, face unlock phones">
-        <span class="badge">-16%</span>
-        <img src="assets/products/phone-budget.jpg" alt="Smart Lite 6.5&Prime; 32GB Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="phones" data-name="smart lite 6.5&quot; 32gb phone smartphone tecno samsung infinix itel redmi iphone galaxy big battery, face unlock">
+        <span class="badge">-16%</span><img src="assets/products/phone-budget.jpg" alt="Smart Lite 6.5&quot; 32GB — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
-          <p class="pname">Smart Lite 6.5&Prime; 32GB</p>
+          <p class="pname">Smart Lite 6.5" 32GB</p>
           <p class="sub" style="margin:0;font-size:.75rem;">Big battery, face unlock</p>
           <p class="old-price">UGX 320,000</p>
           <p class="price">UGX 269,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Smart%20Lite%206.5%22%2032GB%20%28UGX%20269%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Smart Lite 6.5&quot; 32GB" data-price="269000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Smart%20Lite%206.5%22%2032GB%20%28UGX%20269%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="computers" data-name="10.4&prime; tablet wifi 128gb study and entertainment, slim metal frame computers">
-        <span class="badge">-17%</span>
-        <img src="assets/products/tablet.jpg" alt="10.4&Prime; Tablet WiFi 128GB Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="phones" data-name="tecno spark 20 128gb phone smartphone tecno samsung infinix itel redmi iphone galaxy 6.6&quot; 90hz, 50mp, 5000mah">
+        <span class="badge">HOT</span><img src="assets/products/phone-black.jpg" alt="Tecno Spark 20 128GB — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
-          <p class="pname">10.4&Prime; Tablet WiFi 128GB</p>
+          <p class="pname">Tecno Spark 20 128GB</p>
+          <p class="sub" style="margin:0;font-size:.75rem;">6.6" 90Hz, 50MP, 5000mAh</p>
+          <p class="old-price">UGX 749,000</p>
+          <p class="price">UGX 689,000</p>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Tecno Spark 20 128GB" data-price="689000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Tecno%20Spark%2020%20128GB%20%28UGX%20689%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
+        </div>
+      </div>
+      <div class="pcard" data-cat="phones" data-name="samsung galaxy a16 128gb phone smartphone tecno samsung infinix itel redmi iphone galaxy 6.7&quot; super amoled, 5000mah">
+        <img src="assets/products/phone-mint.jpg" alt="Samsung Galaxy A16 128GB — Steady Company Fort Portal" loading="lazy">
+        <div class="pinfo">
+          <p class="pname">Samsung Galaxy A16 128GB</p>
+          <p class="sub" style="margin:0;font-size:.75rem;">6.7" Super AMOLED, 5000mAh</p>
+          <p class="old-price">UGX 929,000</p>
+          <p class="price">UGX 849,000</p>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Samsung Galaxy A16 128GB" data-price="849000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Samsung%20Galaxy%20A16%20128GB%20%28UGX%20849%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
+        </div>
+      </div>
+      <div class="pcard" data-cat="phones" data-name="infinix hot 40i 128gb phone smartphone tecno samsung infinix itel redmi iphone galaxy 6.6&quot; 90hz, 50mp dual camera">
+        <span class="badge">NEW</span><img src="assets/products/phone-rugged.jpg" alt="Infinix Hot 40i 128GB — Steady Company Fort Portal" loading="lazy">
+        <div class="pinfo">
+          <p class="pname">Infinix Hot 40i 128GB</p>
+          <p class="sub" style="margin:0;font-size:.75rem;">6.6" 90Hz, 50MP dual camera</p>
+          <p class="old-price">UGX 679,000</p>
+          <p class="price">UGX 619,000</p>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Infinix Hot 40i 128GB" data-price="619000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Infinix%20Hot%2040i%20128GB%20%28UGX%20619%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
+        </div>
+      </div>
+      <div class="pcard" data-cat="phones" data-name="itel a70 64gb phone smartphone tecno samsung infinix itel redmi iphone galaxy 6.6&quot; hd+, 5000mah">
+        <span class="badge">-12%</span><img src="assets/products/phone-budget.jpg" alt="itel A70 64GB — Steady Company Fort Portal" loading="lazy">
+        <div class="pinfo">
+          <p class="pname">itel A70 64GB</p>
+          <p class="sub" style="margin:0;font-size:.75rem;">6.6" HD+, 5000mAh</p>
+          <p class="old-price">UGX 429,000</p>
+          <p class="price">UGX 379,000</p>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="itel A70 64GB" data-price="379000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20itel%20A70%2064GB%20%28UGX%20379%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
+        </div>
+      </div>
+      <div class="pcard" data-cat="phones" data-name="redmi 13c 128gb phone smartphone tecno samsung infinix itel redmi iphone galaxy 6.74&quot; 90hz, 50mp, dual sim">
+        <span class="badge">DEAL</span><img src="assets/products/phone-premium.jpg" alt="Redmi 13C 128GB — Steady Company Fort Portal" loading="lazy">
+        <div class="pinfo">
+          <p class="pname">Redmi 13C 128GB</p>
+          <p class="sub" style="margin:0;font-size:.75rem;">6.74" 90Hz, 50MP, dual SIM</p>
+          <p class="old-price">UGX 849,000</p>
+          <p class="price">UGX 789,000</p>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Redmi 13C 128GB" data-price="789000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Redmi%2013C%20128GB%20%28UGX%20789%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
+        </div>
+      </div>
+      <div class="pcard" data-cat="phones" data-name="iphone 13 128gb phone smartphone tecno samsung infinix itel redmi iphone galaxy clean unit, battery health checked">
+        <span class="badge">PREMIUM</span><img src="assets/products/phone-premium.jpg" alt="iPhone 13 128GB — Steady Company Fort Portal" loading="lazy">
+        <div class="pinfo">
+          <p class="pname">iPhone 13 128GB</p>
+          <p class="sub" style="margin:0;font-size:.75rem;">Clean unit, battery health checked</p>
+          <p class="old-price">UGX 2,750,000</p>
+          <p class="price">UGX 2,450,000</p>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="iPhone 13 128GB" data-price="2450000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20iPhone%2013%20128GB%20%28UGX%202%2C450%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
+        </div>
+      </div>
+      <div class="pcard" data-cat="computers" data-name="10.4&quot; tablet wifi 128gb tablet laptop computer ultrabook probook ssd study and entertainment, slim metal frame">
+        <img src="assets/products/tablet.jpg" alt="10.4&quot; Tablet WiFi 128GB — Steady Company Fort Portal" loading="lazy">
+        <div class="pinfo">
+          <p class="pname">10.4" Tablet WiFi 128GB</p>
           <p class="sub" style="margin:0;font-size:.75rem;">Study and entertainment, slim metal frame</p>
           <p class="old-price">UGX 1,090,000</p>
           <p class="price">UGX 899,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%2010.4%22%20Tablet%20WiFi%20128GB%20%28UGX%20899%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="10.4&quot; Tablet WiFi 128GB" data-price="899000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%2010.4%22%20Tablet%20WiFi%20128GB%20%28UGX%20899%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="computers" data-name="ultrabook laptop 8gb/256gb ssd light, fast, backlit keyboard computers">
-        <span class="badge">HOT</span>
-        <img src="assets/products/laptop.jpg" alt="Ultrabook Laptop 8GB/256GB SSD Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="computers" data-name="ultrabook laptop 8gb/256gb ssd tablet laptop computer ultrabook probook ssd light, fast, backlit keyboard">
+        <span class="badge">HOT</span><img src="assets/products/laptop.jpg" alt="Ultrabook Laptop 8GB/256GB SSD — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
           <p class="pname">Ultrabook Laptop 8GB/256GB SSD</p>
           <p class="sub" style="margin:0;font-size:.75rem;">Light, fast, backlit keyboard</p>
           <p class="old-price">UGX 2,300,000</p>
           <p class="price">UGX 1,899,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Ultrabook%20Laptop%208GB/256GB%20SSD%20%28UGX%201%2C899%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Ultrabook Laptop 8GB/256GB SSD" data-price="1899000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Ultrabook%20Laptop%208GB/256GB%20SSD%20%28UGX%201%2C899%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="accessories" data-name="wireless earbuds pro touch control, charging case accessories">
-        <span class="badge">-25%</span>
-        <img src="assets/products/earbuds.jpg" alt="Wireless Earbuds Pro Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="computers" data-name="probook 15 16gb/512gb ssd tablet laptop computer ultrabook probook ssd business laptop, full hd display">
+        <span class="badge">NEW</span><img src="assets/products/laptop.jpg" alt="ProBook 15 16GB/512GB SSD — Steady Company Fort Portal" loading="lazy">
+        <div class="pinfo">
+          <p class="pname">ProBook 15 16GB/512GB SSD</p>
+          <p class="sub" style="margin:0;font-size:.75rem;">Business laptop, full HD display</p>
+          <p class="old-price">UGX 3,150,000</p>
+          <p class="price">UGX 2,899,000</p>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="ProBook 15 16GB/512GB SSD" data-price="2899000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20ProBook%2015%2016GB/512GB%20SSD%20%28UGX%202%2C899%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
+        </div>
+      </div>
+      <div class="pcard" data-cat="accessories" data-name="wireless earbuds pro accessory earbuds headphones speaker powerbank charger cable case cover screen guard memory card watch touch control, charging case">
+        <span class="badge">-25%</span><img src="assets/products/earbuds.jpg" alt="Wireless Earbuds Pro — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
           <p class="pname">Wireless Earbuds Pro</p>
           <p class="sub" style="margin:0;font-size:.75rem;">Touch control, charging case</p>
           <p class="old-price">UGX 120,000</p>
           <p class="price">UGX 89,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Wireless%20Earbuds%20Pro%20%28UGX%2089%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Wireless Earbuds Pro" data-price="89000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Wireless%20Earbuds%20Pro%20%28UGX%2089%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="accessories" data-name="over-ear wireless headphones deep bass, long battery accessories">
-        <span class="badge">DEAL</span>
-        <img src="assets/products/headphones.jpg" alt="Over-Ear Wireless Headphones Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="accessories" data-name="over-ear wireless headphones accessory earbuds headphones speaker powerbank charger cable case cover screen guard memory card watch deep bass, long battery">
+        <span class="badge">DEAL</span><img src="assets/products/headphones.jpg" alt="Over-Ear Wireless Headphones — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
           <p class="pname">Over-Ear Wireless Headphones</p>
           <p class="sub" style="margin:0;font-size:.75rem;">Deep bass, long battery</p>
           <p class="old-price">UGX 90,000</p>
           <p class="price">UGX 65,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Over-Ear%20Wireless%20Headphones%20%28UGX%2065%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Over-Ear Wireless Headphones" data-price="65000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Over-Ear%20Wireless%20Headphones%20%28UGX%2065%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="accessories" data-name="20,000mah power bank led indicators, cable included accessories">
-        <span class="badge">-21%</span>
-        <img src="assets/products/powerbank.jpg" alt="20,000mAh Power Bank Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="accessories" data-name="bluetooth mini speaker accessory earbuds headphones speaker powerbank charger cable case cover screen guard memory card watch loud, portable, microsd + fm">
+        <span class="badge">HOT</span><img src="assets/products/speaker.jpg" alt="Bluetooth Mini Speaker — Steady Company Fort Portal" loading="lazy">
+        <div class="pinfo">
+          <p class="pname">Bluetooth Mini Speaker</p>
+          <p class="sub" style="margin:0;font-size:.75rem;">Loud, portable, microSD + FM</p>
+          <p class="old-price">UGX 119,000</p>
+          <p class="price">UGX 89,000</p>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Bluetooth Mini Speaker" data-price="89000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Bluetooth%20Mini%20Speaker%20%28UGX%2089%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
+        </div>
+      </div>
+      <div class="pcard" data-cat="accessories" data-name="20,000mah power bank accessory earbuds headphones speaker powerbank charger cable case cover screen guard memory card watch led indicators, cable included">
+        <span class="badge">-21%</span><img src="assets/products/powerbank.jpg" alt="20,000mAh Power Bank — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
           <p class="pname">20,000mAh Power Bank</p>
           <p class="sub" style="margin:0;font-size:.75rem;">LED indicators, cable included</p>
           <p class="old-price">UGX 95,000</p>
           <p class="price">UGX 75,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%2020%2C000mAh%20Power%20Bank%20%28UGX%2075%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="20,000mAh Power Bank" data-price="75000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%2020%2C000mAh%20Power%20Bank%20%28UGX%2075%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="accessories" data-name="fast charger + cables set usb-c and micro-usb braided accessories">
-        <span class="badge">-28%</span>
-        <img src="assets/products/chargers.jpg" alt="Fast Charger + Cables Set Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="accessories" data-name="fast charger + cables set accessory earbuds headphones speaker powerbank charger cable case cover screen guard memory card watch usb-c and micro-usb braided">
+        <span class="badge">-28%</span><img src="assets/products/chargers.jpg" alt="Fast Charger + Cables Set — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
           <p class="pname">Fast Charger + Cables Set</p>
           <p class="sub" style="margin:0;font-size:.75rem;">USB-C and micro-USB braided</p>
           <p class="old-price">UGX 35,000</p>
           <p class="price">UGX 25,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Fast%20Charger%20%2B%20Cables%20Set%20%28UGX%2025%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Fast Charger + Cables Set" data-price="25000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Fast%20Charger%20%2B%20Cables%20Set%20%28UGX%2025%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="accessories" data-name="phone cases & screen guards all models, tempered glass accessories">
-        <span class="badge">NEW</span>
-        <img src="assets/products/cases.jpg" alt="Phone Cases & Screen Guards Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="accessories" data-name="car charger dual-port accessory earbuds headphones speaker powerbank charger cable case cover screen guard memory card watch charges two devices at speed">
+        <img src="assets/products/chargers.jpg" alt="Car Charger Dual-Port — Steady Company Fort Portal" loading="lazy">
+        <div class="pinfo">
+          <p class="pname">Car Charger Dual-Port</p>
+          <p class="sub" style="margin:0;font-size:.75rem;">Charges two devices at speed</p>
+          <p class="old-price">UGX 30,000</p>
+          <p class="price">UGX 22,000</p>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Car Charger Dual-Port" data-price="22000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Car%20Charger%20Dual-Port%20%28UGX%2022%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
+        </div>
+      </div>
+      <div class="pcard" data-cat="accessories" data-name="32gb memory card accessory earbuds headphones speaker powerbank charger cable case cover screen guard memory card watch class 10, with adapter">
+        <img src="assets/products/cases.jpg" alt="32GB Memory Card — Steady Company Fort Portal" loading="lazy">
+        <div class="pinfo">
+          <p class="pname">32GB Memory Card</p>
+          <p class="sub" style="margin:0;font-size:.75rem;">Class 10, with adapter</p>
+          <p class="old-price">UGX 35,000</p>
+          <p class="price">UGX 28,000</p>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="32GB Memory Card" data-price="28000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%2032GB%20Memory%20Card%20%28UGX%2028%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
+        </div>
+      </div>
+      <div class="pcard" data-cat="accessories" data-name="phone cases & screen guards accessory earbuds headphones speaker powerbank charger cable case cover screen guard memory card watch all models, tempered glass">
+        <span class="badge">NEW</span><img src="assets/products/cases.jpg" alt="Phone Cases & Screen Guards — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
           <p class="pname">Phone Cases & Screen Guards</p>
           <p class="sub" style="margin:0;font-size:.75rem;">All models, tempered glass</p>
           <p class="old-price">UGX 15,000</p>
           <p class="price">UGX 10,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Phone%20Cases%20%26%20Screen%20Guards%20%28UGX%2010%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Phone Cases & Screen Guards" data-price="10000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Phone%20Cases%20%26%20Screen%20Guards%20%28UGX%2010%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="accessories" data-name="smart watch fitness heart rate, calls and notifications accessories">
-        <span class="badge">-25%</span>
-        <img src="assets/products/smartwatch.jpg" alt="Smart Watch Fitness Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="accessories" data-name="smart watch fitness accessory earbuds headphones speaker powerbank charger cable case cover screen guard memory card watch heart rate, calls and notifications">
+        <span class="badge">-25%</span><img src="assets/products/smartwatch.jpg" alt="Smart Watch Fitness — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
           <p class="pname">Smart Watch Fitness</p>
           <p class="sub" style="margin:0;font-size:.75rem;">Heart rate, calls and notifications</p>
           <p class="old-price">UGX 160,000</p>
           <p class="price">UGX 120,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Smart%20Watch%20Fitness%20%28UGX%20120%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Smart Watch Fitness" data-price="120000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Smart%20Watch%20Fitness%20%28UGX%20120%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="home" data-name="43&prime; smart tv full hd netflix and youtube built in home">
-        <span class="badge">-14%</span>
-        <img src="assets/products/tv-smart.jpg" alt="43&Prime; Smart TV Full HD Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="home" data-name="43&quot; smart tv full hd tv television woofer home theater netflix and youtube built in">
+        <span class="badge">-14%</span><img src="assets/products/tv-smart.jpg" alt="43&quot; Smart TV Full HD — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
-          <p class="pname">43&Prime; Smart TV Full HD</p>
+          <p class="pname">43" Smart TV Full HD</p>
           <p class="sub" style="margin:0;font-size:.75rem;">Netflix and YouTube built in</p>
           <p class="old-price">UGX 1,050,000</p>
           <p class="price">UGX 899,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%2043%22%20Smart%20TV%20Full%20HD%20%28UGX%20899%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="43&quot; Smart TV Full HD" data-price="899000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%2043%22%20Smart%20TV%20Full%20HD%20%28UGX%20899%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
-      <div class="pcard" data-cat="home" data-name="home theater woofer system deep bass, bluetooth + usb home">
-        <span class="badge">DEAL</span>
-        <img src="assets/products/woofer.jpg" alt="Home Theater Woofer System Steady Company Fort Portal" loading="lazy">
+      <div class="pcard" data-cat="home" data-name="32&quot; digital tv tv television woofer home theater usb video, clear tuner">
+        <span class="badge">NEW</span><img src="assets/products/tv-smart.jpg" alt="32&quot; Digital TV — Steady Company Fort Portal" loading="lazy">
+        <div class="pinfo">
+          <p class="pname">32" Digital TV</p>
+          <p class="sub" style="margin:0;font-size:.75rem;">USB video, clear tuner</p>
+          <p class="old-price">UGX 489,000</p>
+          <p class="price">UGX 429,000</p>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="32&quot; Digital TV" data-price="429000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%2032%22%20Digital%20TV%20%28UGX%20429%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
+        </div>
+      </div>
+      <div class="pcard" data-cat="home" data-name="home theater woofer system tv television woofer home theater deep bass, bluetooth + usb">
+        <span class="badge">DEAL</span><img src="assets/products/woofer.jpg" alt="Home Theater Woofer System — Steady Company Fort Portal" loading="lazy">
         <div class="pinfo">
           <p class="pname">Home Theater Woofer System</p>
           <p class="sub" style="margin:0;font-size:.75rem;">Deep bass, Bluetooth + USB</p>
           <p class="old-price">UGX 420,000</p>
           <p class="price">UGX 349,000</p>
-          <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Home%20Theater%20Woofer%20System%20%28UGX%20349%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Home Theater Woofer System" data-price="349000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Home%20Theater%20Woofer%20System%20%28UGX%20349%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
+        </div>
+      </div>
+      <div class="pcard" data-cat="sim" data-name="lyca mobile sim card sim card lyca bulb extension lighting led activated on the spot, all sizes">
+        <img src="assets/products/sim.jpg" alt="Lyca Mobile SIM Card — Steady Company Fort Portal" loading="lazy">
+        <div class="pinfo">
+          <p class="pname">Lyca Mobile SIM Card</p>
+          <p class="sub" style="margin:0;font-size:.75rem;">Activated on the spot, all sizes</p>
+          
+          <p class="price">UGX 5,000</p>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="Lyca Mobile SIM Card" data-price="5000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20Lyca%20Mobile%20SIM%20Card%20%28UGX%205%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
+        </div>
+      </div>
+      <div class="pcard" data-cat="sim" data-name="led bulb 4-pack 9w sim card lyca bulb extension lighting led bright, low power, long life">
+        <img src="assets/products/bulbs.jpg" alt="LED Bulb 4-Pack 9W — Steady Company Fort Portal" loading="lazy">
+        <div class="pinfo">
+          <p class="pname">LED Bulb 4-Pack 9W</p>
+          <p class="sub" style="margin:0;font-size:.75rem;">Bright, low power, long life</p>
+          <p class="old-price">UGX 24,000</p>
+          <p class="price">UGX 18,000</p>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="LED Bulb 4-Pack 9W" data-price="18000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%20LED%20Bulb%204-Pack%209W%20%28UGX%2018%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
+        </div>
+      </div>
+      <div class="pcard" data-cat="sim" data-name="4-port extension cable sim card lyca bulb extension lighting led with switch, 3 metres">
+        <span class="badge">-22%</span><img src="assets/products/extension.jpg" alt="4-Port Extension Cable — Steady Company Fort Portal" loading="lazy">
+        <div class="pinfo">
+          <p class="pname">4-Port Extension Cable</p>
+          <p class="sub" style="margin:0;font-size:.75rem;">With switch, 3 metres</p>
+          <p class="old-price">UGX 36,000</p>
+          <p class="price">UGX 28,000</p>
+          <div class="btnrow">
+            <button class="cart-btn" onclick="addToCart(this)" data-name="4-Port Extension Cable" data-price="28000">Add to Cart</button>
+            <a class="order-btn" href="https://wa.me/256774367997?text=Hello%20Steady%20Company%21%20I%20want%20to%20order%20the%204-Port%20Extension%20Cable%20%28UGX%2028%2C000%29.%20Is%20it%20available%3F" target="_blank" rel="noopener">Order</a>
+          </div>
         </div>
       </div>
   </div>
-  <div class="no-results" id="noResults">Nothing matched that search. Ask us on WhatsApp — we probably have it in the shop!</div>
+  <p class="no-results" id="noResults">Nothing matched that search. Ask us on WhatsApp — we probably have it in the shop!</p>
   <p class="shop-note">Prices indicative — message us on WhatsApp for today's exact price, trade-ins and delivery in Fort Portal.</p>
 </section>
 <script>
-function scrollShop(dir) {
-  var c = document.getElementById('shopCarousel');
-  c.scrollBy({left: dir * 440, behavior: 'smooth'});
-}
 function filterProducts() {
   var q = document.getElementById('productSearch').value.trim().toLowerCase();
   var active = document.querySelector('.cat-chip.active').dataset.cat;
@@ -377,6 +615,63 @@ function setCat(btn) {
   btn.classList.add('active');
   filterProducts();
 }
+
+// ── cart ─────────────────────────────────────────────────────────────────
+var CART = [];
+try { CART = JSON.parse(localStorage.getItem('steady_cart') || '[]'); } catch (e) { CART = []; }
+
+function saveCart() {
+  localStorage.setItem('steady_cart', JSON.stringify(CART));
+  renderCart();
+}
+function fmt(n) { return 'UGX ' + n.toLocaleString(); }
+function addToCart(btn) {
+  var name = btn.dataset.name, price = parseInt(btn.dataset.price, 10);
+  var found = false;
+  for (var i = 0; i < CART.length; i++) if (CART[i].name === name) { CART[i].qty++; found = true; break; }
+  if (!found) CART.push({ name: name, price: price, qty: 1 });
+  saveCart();
+  var t = document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 1200);
+}
+function changeQty(name, d) {
+  for (var i = 0; i < CART.length; i++) if (CART[i].name === name) {
+    CART[i].qty += d;
+    if (CART[i].qty < 1) CART.splice(i, 1);
+    break;
+  }
+  saveCart();
+}
+function renderCart() {
+  var box = document.getElementById('cartItems'), total = 0, count = 0, html = '';
+  if (!CART.length) {
+    html = '<div class="cart-empty">Your cart is empty.<br>Add products and send one WhatsApp order.</div>';
+  } else {
+    CART.forEach(function(it) {
+      total += it.price * it.qty; count += it.qty;
+      html += '<div class="ci"><span class="nm">' + it.name + '</span>' +
+        '<span class="qt"><button onclick="changeQty(\'' + it.name + '\',-1)" aria-label="Less">&minus;</button>' +
+        '<b>' + it.qty + '</b>' +
+        '<button onclick="changeQty(\'' + it.name + '\',1)" aria-label="More">+</button></span>' +
+        '<span class="lp">' + fmt(it.price * it.qty) + '</span></div>';
+    });
+  }
+  box.innerHTML = html;
+  document.getElementById('cartTotal').textContent = fmt(total);
+  document.getElementById('cartCount').textContent = count;
+  var msg = 'Hello Steady Company! I want to order:';
+  if (CART.length) {
+    CART.forEach(function(it, i) { msg += '\n' + (i + 1) + '. ' + it.name + ' x' + it.qty + ' — ' + fmt(it.price * it.qty); });
+    msg += '\nTotal: ' + fmt(total) + '\nPlease confirm availability and total. Thank you!';
+  }
+  document.getElementById('cartCheckout').href = 'https://wa.me/256774367997?text=' + encodeURIComponent(msg);
+}
+function toggleCart(open) {
+  document.getElementById('cartDrawer').classList.toggle('open', open);
+  document.getElementById('cartOverlay').classList.toggle('open', open);
+}
+renderCart();
 </script>
 <section id="about" class="about">
   <div class="wrap">
@@ -441,6 +736,7 @@ function setCat(btn) {
       <p><strong>Hours:</strong> Monday &ndash; Saturday, 8:00 AM &ndash; 7:00 PM</p>
       <p><strong>Call / WhatsApp:</strong> 0774 367 997 &middot; 0701 367 997</p>
       <p><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=100054400155843" target="_blank" rel="noopener">Steady Company (U) Ltd on Facebook</a></p>
+      <p><strong>Map:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Steady+Company+U+Ltd+Bwamba+Road+Fort+Portal" target="_blank" rel="noopener" style="color:var(--orange)">Open in Google Maps</a></p>
     </div>
     <iframe loading="lazy" src="https://www.google.com/maps?q=0.653281,30.273509&z=17&output=embed" allowfullscreen></iframe>
   </div>
@@ -454,5 +750,17 @@ function setCat(btn) {
 
 <a class="whatsapp-fab" href="https://wa.me/256774367997" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.2 7L4 29l7.2-2.1c1.9 1 4 1.6 6.3 1.6h.5c6.6 0 12-5.4 12-12S22.1 3 16 3zm0 21.8c-2 0-4-.5-5.7-1.6l-.4-.2-4.3 1.3 1.3-4.2-.3-.4C5.6 17 5 15.5 5 15 5 9.5 9.5 5 16 5s11 4.5 11 10.5-4.9 9.8-11 9.8zm6.1-7.9c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.6-1.8-1.8-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.5-.3z"/></svg></a>
 
+<button class="cart-fab" onclick="toggleCart(true)" aria-label="Open cart">&#128722;<span class="cart-count" id="cartCount">0</span></button>
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart(false)"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Your order">
+  <div class="cart-head"><h3>Your Order</h3><button onclick="toggleCart(false)" aria-label="Close cart">&times;</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-total"><span>Total</span><span id="cartTotal">UGX 0</span></div>
+    <a class="order-btn" id="cartCheckout" href="https://wa.me/256774367997" target="_blank" rel="noopener">Send Order on WhatsApp</a>
+    <p class="cart-note">Sends one WhatsApp message with your full list. We confirm availability and today's prices.</p>
+  </div>
+</aside>
+<div class="toast" id="toast">Added to cart &#10003;</div>
 </body>
 </html>
