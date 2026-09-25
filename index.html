@@ -635,7 +635,8 @@ function addToCart(btn) {
   t.classList.add('show');
   setTimeout(function() { t.classList.remove('show'); }, 1200);
 }
-function changeQty(name, d) {
+function changeQty(btn, d) {
+  var name = btn.dataset.name;
   for (var i = 0; i < CART.length; i++) if (CART[i].name === name) {
     CART[i].qty += d;
     if (CART[i].qty < 1) CART.splice(i, 1);
@@ -650,10 +651,11 @@ function renderCart() {
   } else {
     CART.forEach(function(it) {
       total += it.price * it.qty; count += it.qty;
-      html += '<div class="ci"><span class="nm">' + it.name + '</span>' +
-        '<span class="qt"><button onclick="changeQty(\'' + it.name + '\',-1)" aria-label="Less">&minus;</button>' +
+      var dn = it.name.replace(/"/g, '&quot;');
+      html += '<div class="ci"><span class="nm">' + dn + '</span>' +
+        '<span class="qt"><button onclick="changeQty(this,-1)" data-name="' + dn + '" aria-label="Less">&minus;</button>' +
         '<b>' + it.qty + '</b>' +
-        '<button onclick="changeQty(\'' + it.name + '\',1)" aria-label="More">+</button></span>' +
+        '<button onclick="changeQty(this,1)" data-name="' + dn + '" aria-label="More">+</button></span>' +
         '<span class="lp">' + fmt(it.price * it.qty) + '</span></div>';
     });
   }
