@@ -168,8 +168,13 @@
   .location{background:var(--navy);color:#fff;}
   .location h2{letter-spacing:-.02em;color:#fff;}
   .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;}
-  .loc-details p{margin-bottom:10px;color:#dfe4f0;}
-  .loc-details strong{color:var(--orange);}
+  .contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+  .c-btn{display:inline-block;background:var(--orange);color:#1a2238;font-weight:700;padding:10px 16px;border-radius:8px;text-decoration:none;font-size:.95rem;}
+  .c-btn:hover{filter:brightness(1.1);}
+  .loc-list{list-style:none;padding:0;margin:0;}
+  .loc-list li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.08);color:#dfe4f0;}
+  .loc-list li:last-child{border-bottom:none;}
+  .loc-list li span{display:inline-block;min-width:86px;color:var(--orange);font-weight:700;}
   iframe{width:100%;height:280px;border:0;border-radius:8px;}
   footer{background:var(--navy-dark);color:#a9b3cc;text-align:center;padding:30px 20px;font-size:.9rem;}
   footer a{color:var(--orange);}
@@ -1442,12 +1447,19 @@ renderCart();
   <p class="sub" style="color:#c3cae0">Bwamba Road, Fort Portal &mdash; directly opposite Absa Bank</p>
   <div class="loc-grid">
     <div class="loc-details">
-      <p><strong>Address:</strong> Bwamba Road, opposite Absa Bank, Fort Portal, Kabarole, Uganda</p>
-      <p><strong>Hours:</strong> Monday &ndash; Saturday, 8:00 AM &ndash; 7:00 PM</p>
-      <p><strong>Call / WhatsApp:</strong> 0774 367 997 &middot; 0701 367 997</p>
-      <p><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=100054400155843" target="_blank" rel="noopener">Steady Company (U) Ltd on Facebook</a></p>
-      <p><strong>Email:</strong> <a href="mailto:supportsteadyq@gmail.com">supportsteadyq@gmail.com</a></p>
-      <p><strong>Map:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Steady+Company+U+Ltd+Bwamba+Road+Fort+Portal" target="_blank" rel="noopener" style="color:var(--orange)">Open in Google Maps</a></p>
+      <div class="contact-actions">
+        <a class="c-btn" href="tel:+256774367997">📞 Call 0774 367 997</a>
+        <a class="c-btn" href="https://wa.me/256774367997" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a class="c-btn" href="mailto:supportsteadyq@gmail.com">✉️ Email Us</a>
+      </div>
+      <ul class="loc-list">
+        <li><span>Address</span> Bwamba Road, opposite Absa Bank, Fort Portal, Uganda</li>
+        <li><span>Hours</span> Monday &ndash; Saturday, 8:00 AM &ndash; 7:00 PM</li>
+        <li><span>Phones</span> 0774 367 997 &middot; 0701 367 997</li>
+        <li><span>Email</span> <a href="mailto:supportsteadyq@gmail.com">supportsteadyq@gmail.com</a></li>
+        <li><span>Facebook</span> <a href="https://www.facebook.com/profile.php?id=100054400155843" target="_blank" rel="noopener">Steady Company (U) Ltd</a></li>
+        <li><span>Map</span> <a href="https://www.google.com/maps/search/?api=1&query=Steady+Company+U+Ltd+Bwamba+Road+Fort+Portal" target="_blank" rel="noopener">Open in Google Maps</a></li>
+      </ul>
     </div>
     <iframe loading="lazy" src="https://www.google.com/maps?q=0.653281,30.273509&z=17&output=embed" allowfullscreen></iframe>
   </div>
